@@ -1,0 +1,12 @@
+# LICENSE CERTIFICATE LC-4315588-FO11836-241112
+Reference: LC-4315588-FO11836-241112
+Type: Free Open Source License
+Date of Issue: November 12, 2024
+Expiry: December 31, 2024
+
+# LICENSEE
+Name: Clifton Collins
+
+# LICENSE KEY
+OSS GPL-2.0 2024 https://github.com/clifton-collins3iii/BreakingChainsSystem 
+Exw1VzbgsRg7KAx9CBGaBYwuhfDbPheOdyVrV3gL20En3AGnhTxUBBwJJrEyYHaBHmdZbdjBTuqhQb/LGoz3btKSest475XxeCsTUj/vy1C5phI9BYd6BWgUbsIBCOpsU/DHCD1dJsKlBo8TnlLJ9zIwME07UNv//tXGnxUixiw=

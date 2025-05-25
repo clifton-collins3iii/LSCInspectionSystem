@@ -1,0 +1,18 @@
+﻿<section>
+    <div class="jumbotron">
+        <h1 data-bind="html: displayName"></h1>
+        <p data-bind="html: description"></p> 
+        <a class="btn btn-lg btn-primary" href="#">Go to Landing -->></a>   
+    </div>
+    
+    <h3>Features</h3>
+    <div id="featurelist" style="column-count: 3;">
+        <ul data-bind="foreach: features">
+            <li data-bind="html: $data"></li>
+        </ul>
+    </div>
+    <div class="alert alert-success">
+        <h4>More to Come</h4>
+        New functionality will continue to be implemented for us soon.
+    </div>
+</section>
