@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[BCL_Building] (
     [PK_Building_Id]  INT           IDENTITY (1, 1) NOT NULL,
+    [FK_Campus_Id]    INT           NULL,
     [CreatedDate]     DATETIME      CONSTRAINT [DF_BCL_Building_CreatedDate] DEFAULT (getdate()) NOT NULL,
     [EffectiveDate]   DATETIME      CONSTRAINT [DF_BCL_Building_EffectiveDate] DEFAULT (getdate()) NOT NULL,
     [TerminationDate] DATETIME      CONSTRAINT [DF_BCL_Building_TerminationDate] DEFAULT ('2099-12-31 00:00:00.000') NOT NULL,

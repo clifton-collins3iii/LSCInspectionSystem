@@ -1,0 +1,11 @@
+# LICENSE CERTIFICATE LC-4315588-FO12106-250525
+Reference: LC-4315588-FO12106-250525
+Type: Free Open Source License
+Date of Issue: May 25, 2025
+Expiry: December 31, 2025
+
+# LICENSEE
+Name: Clifton Collins
+
+# LICENSE KEY
+OSS GPL-3.0 2025 https://github.com/clifton-collins3iii/LSCInspectionSystem UU5My2D4LKLlramNQfE2FFwTlcX830QPS+0h0BTfLPh+nqHw7uTqVJVCZjv8qy1I09xKyUjsrUPi2J1ruKZmMy3qOP5rGpM18w5w/CYUNZDn0G2MuP85AGL3PSpQlcneCCHFfqnty3YORbU9rIg+b3QreL7xAYINU6tOPBz+vKM=

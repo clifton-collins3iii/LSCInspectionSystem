@@ -30,7 +30,7 @@ namespace BCLservice.ServiceData
             string _connectionstring = ConfigurationManager.ConnectionStrings["BCLservice.Properties.Settings.dbconnection"].ConnectionString;
             SqlConnection _connection = new SqlConnection(_connectionstring);
             BclDbConnection conn = new BclDbConnection();
-            SqlCommand scmd = new SqlCommand("BCL_Campus_Select", _connection);
+            SqlCommand scmd = new SqlCommand("LSC_Campus_Select", _connection);
             DataTable dt = new DataTable();
             SqlDataAdapter td = new SqlDataAdapter(scmd);
             _connection.Open();
@@ -65,7 +65,7 @@ namespace BCLservice.ServiceData
             string _connectionstring = ConfigurationManager.ConnectionStrings["BCLservice.Properties.Settings.dbconnection"].ConnectionString;
             SqlConnection _connection = new SqlConnection(_connectionstring);
             BclDbConnection conn = new BclDbConnection();
-            SqlCommand scmd = new SqlCommand("BCL_Campus_Update", _connection);
+            SqlCommand scmd = new SqlCommand("LSC_Campus_Update", _connection);
             scmd.CommandType = CommandType.StoredProcedure;
             scmd.CommandTimeout = 120;
             scmd.Parameters.Add(new SqlParameter("@Request", JsonConvert.SerializeObject(request)));
@@ -102,7 +102,7 @@ namespace BCLservice.ServiceData
             string _connectionstring = ConfigurationManager.ConnectionStrings["BCLservice.Properties.Settings.dbconnection"].ConnectionString;
             SqlConnection _connection = new SqlConnection(_connectionstring);
             BclDbConnection conn = new BclDbConnection();
-            SqlCommand scmd = new SqlCommand("BCL_Campus_Create", _connection);
+            SqlCommand scmd = new SqlCommand("LSC_Campus_Create", _connection);
             scmd.CommandType = CommandType.StoredProcedure;
             scmd.CommandTimeout = 120;
             scmd.Parameters.Add(new SqlParameter("@Request", JsonConvert.SerializeObject(request)));
@@ -138,7 +138,7 @@ namespace BCLservice.ServiceData
             string _connectionstring = ConfigurationManager.ConnectionStrings["BCLservice.Properties.Settings.dbconnection"].ConnectionString;
             SqlConnection _connection = new SqlConnection(_connectionstring);
             BclDbConnection conn = new BclDbConnection();
-            SqlCommand scmd = new SqlCommand("BCL_Campus_Delete", _connection);
+            SqlCommand scmd = new SqlCommand("LSC_Campus_Delete", _connection);
             scmd.CommandType = CommandType.StoredProcedure;
             scmd.CommandTimeout = 120;
             scmd.Parameters.Add(new SqlParameter("@Request", JsonConvert.SerializeObject(request)));

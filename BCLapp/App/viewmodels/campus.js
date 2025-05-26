@@ -49,7 +49,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                 data: JSON.stringify(DTO),
                 success: function (data) {      // {"Result":"OK", "Options":[{"DisplayText": "", "Value":"FK_Building_ID"}, {}, {}]}
                     campusOptionsArray = data.Options;
-                            CampusBuildingControl(DTO);
+                           // CampusBuildingControl(DTO);
                 },
                 error: function (request, error, exception) {
 
@@ -150,17 +150,17 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         var compositionComplete = function () {
-            $('#BuildingTableContainer').jtable({
-                title: 'Building Edit',
+            $('#CampusTableContainer').jtable({
+                title: 'Campus Edit',
                 selecting: true, //Enable selecting
                 multiselect: false, //Allow multiple selecting
                 selectingCheckboxes: true, //Show checkboxes on first column
                 selectOnRowClick: true, //Enable this to only select using checkboxes
                 actions: {
-                    listAction: buildingselect,     // this calls the javascript function buildingselect() below
-                    createAction: buildingcreate,
-                    updateAction: buildingupdate,
-                    deleteAction: buildingdelete,
+                    listAction: campusselect,     // this calls the javascript function campusselect() below
+                    createAction: campuscreate,
+                    updateAction: campusupdate,
+                    deleteAction: campusdelete,
                 },
                 messages: {
                     deleteConfirmation: 'Edit/Update the Deleted Flag\r\nPressing DELETE is permanent!',
@@ -194,15 +194,15 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                         list: false
                     },
                     Name_Short: {
-                        title: 'Building Short Name',
+                        title: 'Campus Short Name',
                         width: '10%'
                     },
                     Name_Long: {
-                        title: 'Building Long Name',
+                        title: 'Campus Long Name',
                         width: '10%'
                     },
                     Description: {
-                        title: 'Description of the building',
+                        title: 'Description of the Campus',
                         width: '20%'
                     },
                     AddressStreet: {
@@ -250,7 +250,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                 //Register to selectionChanged event to hanlde events
                 selectionChanged: function () {
                     //Get all selected rows
-                    var $selectedRows = $('#BuildingTableContainer').jtable('selectedRows');
+                    var $selectedRows = $('#CampusTableContainer').jtable('selectedRows');
 
                     $('#SelectedRowList').empty();
                     if ($selectedRows.length > 0) {
@@ -276,17 +276,17 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                     }
                 },
             });
-            $('#BuildingTableContainer').jtable('load');
+            $('#CampusTableContainer').jtable('load');
             return true;
         };
 
         //  Used by jTable deleteAction method
-        var buildingdelete = function (postData, jtParams) {
-            var r = confirm('Do you wish to delete ALL rooms and associated invoices ?');
+        var campusdelete = function (postData, jtParams) {
+            var r = confirm('Do you wish to delete ALL Buildings and associated inspections ?');
             if (r == true) {
                 return $.Deferred(function ($dfd) {
                     $.ajax({
-                        url: webServiceURL() + '/jTable/BuildingDelete',
+                        url: webServiceURL() + '/jTable/CampusDelete',
                         type: 'POST',
                         dataType: 'json',
                         data: postData,
@@ -325,10 +325,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable createAction method
-        var buildingcreate = function (postData, jtParams) {
+        var campuscreate = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingCreate',
+                    url: webServiceURL() + '/jTable/CampusCreate',
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -343,10 +343,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable updateAction method
-        var buildingupdate = function (postData, jtParams) {
+        var campusupdate = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingUpdate',
+                    url: webServiceURL() + '/jTable/CampusUpdate',
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -361,27 +361,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable listAction method
-        var buildingselect = function (postData, jtParams) {
+        var campusselect = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingSelect',     //  ?' + postData,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: postData,
-                    success: function (data) {
-                        $dfd.resolve(data);
-                    },
-                    error: function (request, error, exception) {
-                        $dfd.reject();
-                    }
-                });
-            });
-        }
-
-        var buildingselect = function (postData, jtParams) {
-            return $.Deferred(function ($dfd) {
-                $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingSelect',     //  ?' + postData,
+                    url: webServiceURL() + '/jTable/campusselect',     //  ?' + postData,
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -511,7 +494,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
 
 
         return {
-            displayName: 'Building',
+            displayName: 'Campus',
             images: ko.observableArray([]),
             isLoading: isLoading,
             activate: activate,

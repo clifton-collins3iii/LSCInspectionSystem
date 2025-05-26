@@ -229,6 +229,10 @@
                         key: true,
                         list: false
                     },
+                    FK_Campus_Id: {
+                        key: true,
+                        list: false
+                    },
                     Name_Short: {
                         title: 'Building Short Name',
                         width: '10%'

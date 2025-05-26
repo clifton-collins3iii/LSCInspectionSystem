@@ -382,6 +382,12 @@
     <Build Include="dbo\Stored Procedures\BCL_Contacts_Select.sql" />
     <Build Include="dbo\Stored Procedures\BCL_Contacts_Delete.sql" />
     <Build Include="dbo\Stored Procedures\BCL_Contacts_CREATE.sql" />
+    <Build Include="dbo\Tables\LSC_Campus.sql" />
+    <Build Include="Security\bcldbadmin.sql" />
+    <Build Include="dbo\Stored Procedures\LSC_Campus_Create.sql" />
+    <Build Include="dbo\Stored Procedures\LSC_Campus_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\LSC_Campus_Select.sql" />
+    <Build Include="dbo\Stored Procedures\LSC_Campus_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BCLdatabase.publish.xml" />
