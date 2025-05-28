@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BCLservice.ServiceData
+namespace LSCservice.ServiceData
 {
     using System.Data;
     using System.Net.NetworkInformation;
     using System.Data.SqlClient;
     using System.Configuration;
-    using global::BCLservice.DataStore;
+    using global::LSCservice.DataStore;
 
     public class dtTableOptions_Services
     {

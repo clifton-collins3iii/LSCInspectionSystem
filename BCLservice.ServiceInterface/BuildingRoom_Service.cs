@@ -1,10 +1,10 @@
-﻿using BCLservice.ServiceData;
+﻿using LSCservice.ServiceData;
 using ServiceStack;
 using System;
 using System.Collections.Generic;
-using BCLservice.ServiceData.BCLservice.ServiceData;
+using LSCservice.ServiceData.BCLservice.ServiceData;
 
-namespace BCLservice.ServiceInterface
+namespace LSCservice.ServiceInterface
 {
     public class BuildingRoom_Service : Service
     {

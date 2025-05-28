@@ -7,8 +7,8 @@
     <ProjectGuid>{582DFB0F-F84D-4E43-9BCA-2A5A86600B7A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BCLservice.ServiceInterface</RootNamespace>
-    <AssemblyName>BCLservice.ServiceInterface</AssemblyName>
+    <RootNamespace>LSCservice.ServiceInterface</RootNamespace>
+    <AssemblyName>LSCservice.ServiceInterface</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <RestorePackages>true</RestorePackages>

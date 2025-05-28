@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BCLservice")]
+[assembly: AssemblyTitle("LSCservice")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BCLservice")]
-[assembly: AssemblyCopyright("Copyright (c) 2017")]
+[assembly: AssemblyProduct("LSCservice")]
+[assembly: AssemblyCopyright("Copyright (c) 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

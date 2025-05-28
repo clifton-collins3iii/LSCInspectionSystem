@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ServiceStack;
-using BCLservice.ServiceData;
+using LSCservice.ServiceData;
 
-namespace BCLservice.ServiceModel
+namespace LSCservice.ServiceModel
 {
     [Route("/jTable/NopBuildingRoomResident")]
     public class jTableNOPBuildingRoomResident_Request : BuildingRoomResidentObjectRow, IReturn<jBuildingRoomResidentResponse>

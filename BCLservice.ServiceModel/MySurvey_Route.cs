@@ -6,18 +6,18 @@ using LSCservice.ServiceData;
 
 namespace LSCservice.ServiceModel
 {
-    [Route("/jTable/NopContact")]
-    public class jTableNOPContact_Request : ContactObjectRow, IReturn<jContactResponse>
+    [Route("/jTable/NopMySurvey")]
+    public class jTableNOPMySurvey_Request : MySurveyObjectRow, IReturn<jMySurveyResponse>
     {
 
     }
 
-    [Route("/ContactSelect")]
-    public class ContactSelect_Request : IReturn<ContactResponse>
+    [Route("/MySurveySelect")]
+    public class MySurveySelect_Request : IReturn<MySurveyResponse>
     {
     }
 
-    public class ContactResponse : IHasResponseStatus
+    public class MySurveyResponse : IHasResponseStatus
     {
         private ResponseStatus _responseStatus;
         public ResponseStatus ResponseStatus
@@ -31,75 +31,75 @@ namespace LSCservice.ServiceModel
                 _responseStatus = value;
             }
         }
-        private List<ContactObject> _Contact;
-        public List<ContactObject> Contact
+        private List<MySurveyObject> _MySurvey;
+        public List<MySurveyObject> MySurvey
         {
             get
             {
-                return _Contact;
+                return _MySurvey;
             }
             set
             {
-                _Contact = value;
+                _MySurvey = value;
             }
         }
-        public ContactResponse()
+        public MySurveyResponse()
         {
-            this.Contact = new List<ContactObject>();
+            this.MySurvey = new List<MySurveyObject>();
             this.ResponseStatus = new ResponseStatus();
             this.ResponseStatus.Errors = new List<ResponseError>();
         }
     }
 
-    [Route("/jTable/ContactSelect")]
-    public class jContactSelect_Request : IReturn<jContactResponse>
+    [Route("/jTable/MySurveySelect")]
+    public class jMySurveySelect_Request : IReturn<jMySurveyResponse>
     {
     }
 
-    [Route("/jTable/ContactUpdate")]
-    public class jContactUpdate_Request : ContactObjectRow, IReturn<jContactResponse>
-    {
-
-    }
-
-    [Route("/jTable/ContactDelete")]
-    public class jContactDelete_Request : ContactObjectRow, IReturn<jContactResponse>
+    [Route("/jTable/MySurveyUpdate")]
+    public class jMySurveyUpdate_Request : MySurveyObjectRow, IReturn<jMySurveyResponse>
     {
 
     }
 
-    [Route("/jTable/ContactCreate")]
-    public class jContactCreate_Request : ContactObjectRow, IReturn<jContactRecordResponse>
+    [Route("/jTable/MySurveyDelete")]
+    public class jMySurveyDelete_Request : MySurveyObjectRow, IReturn<jMySurveyResponse>
     {
 
     }
 
-    public class jContactRecordResponse
+    [Route("/jTable/MySurveyCreate")]
+    public class jMySurveyCreate_Request : MySurveyObjectRow, IReturn<jMySurveyRecordResponse>
+    {
+
+    }
+
+    public class jMySurveyRecordResponse
     {
         public string Result { get; set; }
-        public ContactObjectRow Record { get; set; }
+        public MySurveyObjectRow Record { get; set; }
         public int TotalRecordCount { get; set; }
         public string Message { get; set; }
 
         public void New()
         {
-            this.Record = new ContactObjectRow();
+            this.Record = new MySurveyObjectRow();
             this.Result = string.Empty;
             this.Message = string.Empty;
             this.TotalRecordCount = 0;
         }
     }
 
-    public class jContactResponse
+    public class jMySurveyResponse
     {
         public string Result { get; set; }
-        public List<ContactObject> Records { get; set; }
+        public List<MySurveyObject> Records { get; set; }
         public int TotalRecordCount { get; set; }
         public string Message { get; set; }
 
         public void New()
         {
-            this.Records = new List<ContactObject>();
+            this.Records = new List<MySurveyObject>();
             this.Result = string.Empty;
             this.Message = string.Empty;
             this.TotalRecordCount = 0;

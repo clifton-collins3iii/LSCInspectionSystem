@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ServiceStack;
-using BCLservice.ServiceData;
+using LSCservice.ServiceData;
 
-namespace BCLservice.ServiceModel
+namespace LSCservice.ServiceModel
 {
     [Route("/jTable/NopSourceContact")]
     public class jTableNOPSourceContact_Request : SourceContactObjectRow, IReturn<jSourceContactResponse>

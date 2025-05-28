@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ServiceStack;
-using BCLservice.ServiceData;
+using LSCservice.ServiceData;
 
 
-namespace BCLservice.ServiceModel
+namespace LSCservice.ServiceModel
 {
     [Route("/jTable/NopSource")]
     public class jTableNOPSource_Request : SourceObjectRow, IReturn<jSourceResponse>

@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Net.NetworkInformation;
-using BCLservice.DataStore;
+using LSCservice.DataStore;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace BCLservice.ServiceData
+namespace LSCservice.ServiceData
 {
     public class dtAppVersions
     {

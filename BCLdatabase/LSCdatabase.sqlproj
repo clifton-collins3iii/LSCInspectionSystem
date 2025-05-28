@@ -11,8 +11,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>BCLdatabase</RootNamespace>
-    <AssemblyName>BCLdatabase</AssemblyName>
+    <RootNamespace>LSCdatabase</RootNamespace>
+    <AssemblyName>LSCdatabase</AssemblyName>
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -370,7 +370,6 @@
     <Build Include="dbo\Stored Procedures\BCL_Dashboard_Vacancy.sql" />
     <Build Include="dbo\Tables\BCL_SourceContacts.sql" />
     <Build Include="dbo\Tables\BCL_Source.sql" />
-    <Build Include="dbo\Tables\BCL_Contacts.sql" />
     <Build Include="dbo\Stored Procedures\BCL_Source_CREATE.sql" />
     <Build Include="dbo\Stored Procedures\BCL_SourceContacts_Select.sql" />
     <Build Include="dbo\Stored Procedures\BCL_SourceContacts_Delete.sql" />
@@ -388,6 +387,17 @@
     <Build Include="dbo\Stored Procedures\LSC_Campus_Delete.sql" />
     <Build Include="dbo\Stored Procedures\LSC_Campus_Select.sql" />
     <Build Include="dbo\Stored Procedures\LSC_Campus_Update.sql" />
+    <Build Include="dbo\Tables\LSC_InspectionTemplateItems.sql" />
+    <Build Include="dbo\Tables\LSC_InspectionTemplate.sql" />
+    <Build Include="dbo\Tables\LSC_InspectionSurvey.sql" />
+    <Build Include="dbo\Tables\LSC_InspectionResults.sql" />
+    <Build Include="dbo\Tables\LSC_InspectionItems.sql" />
+    <Build Include="dbo\Stored Procedures\BCL_ContactOptions_Select.sql" />
+    <Build Include="dbo\Stored Procedures\BCL_Contact_Update.sql" />
+    <Build Include="dbo\Stored Procedures\BCL_Contact_Select.sql" />
+    <Build Include="dbo\Stored Procedures\BCL_Contact_CREATE.sql" />
+    <Build Include="dbo\Tables\BCL_Contact.sql" />
+    <Build Include="dbo\Stored Procedures\LSC_MySurvey_Select.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BCLdatabase.publish.xml" />
@@ -411,5 +421,11 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="DataUpdateScripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 </Project>

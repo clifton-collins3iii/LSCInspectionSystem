@@ -7,8 +7,8 @@
     <ProjectGuid>{6BF4E3E7-8BE6-494D-8B31-BB495BC67F3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BCLservice.ServiceData</RootNamespace>
-    <AssemblyName>BCLservice.ServiceData</AssemblyName>
+    <RootNamespace>LSCservice.ServiceData</RootNamespace>
+    <AssemblyName>LSCservice.ServiceData</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -166,6 +166,7 @@
     <Compile Include="Objects\BuildingRoomResidentObject.cs" />
     <Compile Include="Objects\CampusObjects.cs" />
     <Compile Include="Objects\ContactObject.cs" />
+    <Compile Include="Objects\MySurveyObjects.cs" />
     <Compile Include="Objects\ResidentObject.cs" />
     <Compile Include="Objects\BuildingRoomObject.cs" />
     <Compile Include="Objects\BuildingObject.cs" />

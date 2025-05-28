@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BCLservice.ServiceData
+namespace LSCservice.ServiceData
 {
     using System;
     using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace BCLservice.ServiceData
     using System.Net.NetworkInformation;
     using System.Data.SqlClient;
     using System.Configuration;
-    using global::BCLservice.DataStore;
+    using global::LSCservice.DataStore;
 
     namespace BCLservice.ServiceData
     {

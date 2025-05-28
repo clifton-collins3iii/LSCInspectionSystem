@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace BCLservice.DataStore
+namespace LSCservice.DataStore
 {
     public class BclDbConnection
     {

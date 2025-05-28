@@ -1,7 +1,7 @@
 using System;
 using System.Web.ModelBinding;
 
-namespace BCLservice
+namespace LSCservice
 {
     public class Global : System.Web.HttpApplication
     {

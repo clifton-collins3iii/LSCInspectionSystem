@@ -1,6 +1,6 @@
 using ServiceStack;
 
-namespace BCLservice.ServiceModel
+namespace LSCservice.ServiceModel
 {
     [Route("/hello")]
     [Route("/hello/{Name}")]

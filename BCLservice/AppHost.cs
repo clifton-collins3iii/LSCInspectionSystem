@@ -1,9 +1,9 @@
 using Funq;
 using ServiceStack;
 using ServiceStack.ServiceInterface;
-using BCLservice.ServiceInterface;
+using LSCservice.ServiceInterface;
 
-namespace BCLservice
+namespace LSCservice
 {
     //VS.NET Template Info: https://servicestack.net/vs-templates/EmptyAspNet
     public class AppHost : AppHostBase

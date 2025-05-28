@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ServiceStack;
-using BCLservice.ServiceData;
+using LSCservice.ServiceData;
 
-namespace BCLservice.ServiceInterface
+namespace LSCservice.ServiceInterface
 {
     public class AppVersions_Service : Service
     {

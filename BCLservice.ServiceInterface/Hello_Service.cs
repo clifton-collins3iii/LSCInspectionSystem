@@ -1,7 +1,7 @@
 using ServiceStack;
-using BCLservice.ServiceModel;
+using LSCservice.ServiceModel;
 
-namespace BCLservice.ServiceInterface
+namespace LSCservice.ServiceInterface
 {
     public class Hello_Service
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ServiceStack;
-using BCLservice.ServiceData;
+using LSCservice.ServiceData;
 
-namespace BCLservice.ServiceModel
+namespace LSCservice.ServiceModel
 {
     [Route ("/AppVersions")]
     public class AppVersions_Request : AppVersionObject, IReturn<AppVersionsResponse>

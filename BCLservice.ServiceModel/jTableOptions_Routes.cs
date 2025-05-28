@@ -1,12 +1,12 @@
-﻿using BCLservice.ServiceData;
+﻿using LSCservice.ServiceData;
 using ServiceStack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BCLservice.ServiceData.BCLservice;
-namespace BCLservice.ServiceModel
+using LSCservice.ServiceData.BCLservice;
+namespace LSCservice.ServiceModel
 {
     internal class jTableOptions_Routes
     {

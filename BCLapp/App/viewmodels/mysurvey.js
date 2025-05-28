@@ -10,7 +10,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         var stateOptionsArray;
         var mysurveyOptionsArray;
         var rentpaymentOptionsArray;
-        var sourceselected;
+        var mysurveyselected;
 
         var stateOptionsJSON = function (data) {
             return stateOptionsArray;
@@ -37,7 +37,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         var getmysurveyOptionsJSON = function (data) {
-            sourceselected = data.PK_Source_Id;
+            mysurveyselected = data.PK_Source_Id;
             var DTO = {
                 PK_Source_Id: data.PK_Source_Id
             }
@@ -120,14 +120,14 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         var compositionComplete = function () {
-            $('#SourceTableContainer').jtable({
-                title: 'Source Edit',
+            $('#MysurveyTableContainer').jtable({
+                title: 'Mysurvey Edit',
                 selecting: true, //Enable selecting
                 multiselect: false, //Allow multiple selecting
                 selectingCheckboxes: true, //Show checkboxes on first column
                 selectOnRowClick: true, //Enable this to only select using checkboxes
                 actions: {
-                    listAction: sourceselect,     // this calls the javascript function sourceselect() below
+                    listAction: mysurveyselect,     // this calls the javascript function mysurveyselect() below
                     createAction: sourcecreate,
                     updateAction: sourceupdate,
                     deleteAction: sourcedelete,
@@ -328,10 +328,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable listAction method
-        var sourceselect = function (postData, jtParams) {
+        var mysurveyselect = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/SourceSelect',     //  ?' + postData,
+                    url: webServiceURL() + '/jTable/MySurveySelect',     //  ?' + postData,
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -347,7 +347,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
 
         var sourcemysurveyselect = function (postData, jtParams) {
             var DTO = {
-                FK_Source_Id: sourceselected
+                FK_Source_Id: mysurveyselected
             }
             return $.Deferred(function ($dfd) {
                 $.ajax({

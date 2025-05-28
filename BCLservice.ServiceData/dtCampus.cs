@@ -8,9 +8,9 @@ using System.Data;
 using System.Net.NetworkInformation;
 using System.Data.SqlClient;
 using System.Configuration;
-using global::BCLservice.DataStore;
+using global::LSCservice.DataStore;
 
-namespace BCLservice.ServiceData
+namespace LSCservice.ServiceData
 {
     public class dtCampus
     {

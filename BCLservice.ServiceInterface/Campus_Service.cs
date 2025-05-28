@@ -1,13 +1,13 @@
-﻿using BCLservice.ServiceData;
+﻿using LSCservice.ServiceData;
 using ServiceStack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BCLservice.ServiceData.BCLservice.ServiceData;
+using LSCservice.ServiceData.BCLservice.ServiceData;
 
-namespace BCLservice.ServiceInterface
+namespace LSCservice.ServiceInterface
 {
     public class Campus_Service : Service
     {
