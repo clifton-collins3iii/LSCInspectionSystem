@@ -93,6 +93,7 @@
     <Content Include="App\main.js" />
     <Content Include="App\viewmodels\campus.js" />
     <Content Include="App\viewmodels\contact.js" />
+    <Content Include="App\viewmodels\mysurvey.js" />
     <Content Include="App\viewmodels\source.js" />
     <Content Include="App\viewmodels\resident.js" />
     <Content Include="App\viewmodels\room.js" />
@@ -102,6 +103,7 @@
     <Content Include="App\viewmodels\welcome.js" />
     <Content Include="App\views\campus.html" />
     <Content Include="App\views\contact.html" />
+    <Content Include="App\views\mysurvey.html" />
     <Content Include="App\views\source.html" />
     <Content Include="App\views\resident.html" />
     <Content Include="App\views\room.html" />

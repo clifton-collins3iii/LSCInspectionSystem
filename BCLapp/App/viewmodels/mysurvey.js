@@ -6,29 +6,28 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         //See the "welcome" module for an example of function export.
         var isLoading = ko.observable(false);
         var webServiceURL = ko.observable(sessionStorage.getItem('WebService'));
-        var showRooms = ko.observable(false);
+        var showContacts = ko.observable(false);
         var stateOptionsArray;
-        var residentOptionsArray;
-        var campusOptionsArray;
-        var campusselected;
+        var mysurveyOptionsArray;
+        var rentpaymentOptionsArray;
+        var sourceselected;
 
         var stateOptionsJSON = function (data) {
             return stateOptionsArray;
             //return [{ Value: '1', DisplayText: 'Admin Office' }, { Value: '5', DisplayText: 'Dartmoor' }, { Value: '6', DisplayText: 'Next2' }];
         }
 
-        var campusOptionsJSON = function (data) {
-            return campusOptionsArray;
+        var mysurveyOptionsJSON = function (data) {
+            return mysurveyOptionsArray;
         }
-
         var activate = function () {
             //the router's activator calls this function and waits for it to complete before proceding
             $.ajax({
                 url: webServiceURL() + '/jTableOptions/StateOptionsSelect',     //  ?' + postData,
                 type: 'POST',
                 dataType: 'json',
-                success: function (data) {      // {"Result":"OK", "Options":[{"DisplayText": "", "Value":"FK_Building_ID"}, {}, {}]}
-                    //buildingOptionsArray = JSON.stringify(data.Options);
+                success: function (data) {      // {"Result":"OK", "Options":[{"DisplayText": "", "Value":"FK_Source_ID"}, {}, {}]}
+                    //sourceOptionsArray = JSON.stringify(data.Options);
                     stateOptionsArray = data.Options;
                 },
                 error: function (request, error, exception) {
@@ -37,19 +36,19 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             });
         }
 
-        var getbuildingOptionsJSON = function (data) {
-            campusselected = data.PK_Campus_Id;
+        var getmysurveyOptionsJSON = function (data) {
+            sourceselected = data.PK_Source_Id;
             var DTO = {
-                PK_Campus_Id: data.PK_Campus_Id
+                PK_Source_Id: data.PK_Source_Id
             }
             $.ajax({
-                url: webServiceURL() + '/jTableOptions/BuildingOptionsSelect',     //  ?' + postData,
+                url: webServiceURL() + '/jTableOptions/ContactOptionsSelect',     //  ?' + postData,
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify(DTO),
                 success: function (data) {      // {"Result":"OK", "Options":[{"DisplayText": "", "Value":"FK_Building_ID"}, {}, {}]}
-                    campusOptionsArray = data.Options;
-                           // CampusBuildingControl(DTO);
+                    //buildingOptionsArray = JSON.stringify(data.Options);
+                    mysurveyOptionsArray = data.Options;
                 },
                 error: function (request, error, exception) {
 
@@ -57,49 +56,27 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             });
         }
 
-        var CampusBuildingControl = function (dto) {
-            $('#CampusBuildingTableContainer').jtable({
-                title: 'Buildings',
+        var SourceContactsControl = function (dto) {
+            $('#SourceContactsTableContainer').jtable({
+                title: 'mysurveys',
                 actions: {
-                    listAction: buildingroomresidentselect,
-                    createAction: buildingroomresidentcreate,
-                    updateAction: buildingroomresidentupdate,
-                    deleteAction: buildingroomresidentdelete
+                    listAction: sourcemysurveyselect,
+                    createAction: sourcemysurveycreate,
+                    updateAction: sourcemysurveyupdate,
+                    deleteAction: sourcemysurveydelete
                 },
                 messages: {
                     deleteConfirmation: 'Edit/Update the Deleted Flag\r\nPressing DELETE is permanent!',
                 },
                 fields: {
-                    PK_RoomResident_Id: {
+                    PK_mysurvey_Id: {
                         key: true,
                         list: false
                     },
-                    FK_BuildingRoom_Id: {
-                        title: 'Room Name',
+                    FK_Sourcemysurvey_Id: {
+                        title: 'mysurvey Name',
                         width: '10%',
-                        options: roomOptionsJSON
-                    },
-                    FK_Resident_Id: {
-                        title: 'Resident Name',
-                        width: '10%',
-                        options: residentOptionsJSON,
-                        //display: function (data) {
-                        //    if (data.record.FK_Resident_Id == 0) {
-                        //        return '<span style="background-color: yellow">Vacant</span>'
-                        //    } else {
-                        //        return data.record.FK_Resident_Id;
-                        //    }
-                        //}
-                    },
-                    RentPaymentFrequency: {
-                        title: 'Payment Period',
-                        width: '5%',
-                        options: rentpaymentfrequencyOptionsJSON
-                    },
-                    RentPaymentAmount: {
-                        title: 'Payment Amount',
-                        width: '5%',
-                        defaultvalue: 0
+                        options: mysurveyOptionsJSON
                     },
                     EffectiveDate: {
                         title: 'Effective Date',
@@ -120,13 +97,6 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                         type: 'checkbox',
                         values: { 'false': 'Inactive', 'true': 'Active' },
                         defaultValue: true,
-                        display: function (data) {
-                            if (data.record.FK_Resident_Id == 0 && data.record.IsActive == true) {
-                                return '<span style="background-color: yellow">Vacant</span>'
-                            } else {
-                                return data.record.IsActive;
-                            }
-                        }
                     },
                     IsDeleted: {
                         title: 'Deleted',
@@ -143,24 +113,24 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                     });
                 },
             })
-            $('#CampusBuildingTableContainer').jtable('load');
-            //$('#CampusBuildingTableContainer').show();
-            showRooms(true);
+            $('#SourceContactsTableContainer').jtable('load');
+            //$('#SourceContactsTableContainer').show();
+            showContacts(true);
             return true;
         }
 
         var compositionComplete = function () {
-            $('#CampusTableContainer').jtable({
-                title: 'Campus Edit',
+            $('#SourceTableContainer').jtable({
+                title: 'Source Edit',
                 selecting: true, //Enable selecting
                 multiselect: false, //Allow multiple selecting
                 selectingCheckboxes: true, //Show checkboxes on first column
                 selectOnRowClick: true, //Enable this to only select using checkboxes
                 actions: {
-                    listAction: campusselect,     // this calls the javascript function campusselect() below
-                    createAction: campuscreate,
-                    updateAction: campusupdate,
-                    deleteAction: campusdelete,
+                    listAction: sourceselect,     // this calls the javascript function sourceselect() below
+                    createAction: sourcecreate,
+                    updateAction: sourceupdate,
+                    deleteAction: sourcedelete,
                 },
                 messages: {
                     deleteConfirmation: 'Edit/Update the Deleted Flag\r\nPressing DELETE is permanent!',
@@ -183,26 +153,22 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                             icon: '/Content/images/refreshred16.png',
                             text: 'REFRESH',
                             click: function () {
-                                $('#BuildingTableContainer').jtable('reload');
+                                $('#SourceTableContainer').jtable('reload');
                             }
                         }
                     ]
                 },
                 fields: {
-                    PK_Building_Id: {
+                    PK_Source_Id: {
                         key: true,
                         list: false
                     },
-                    Name_Short: {
-                        title: 'Campus Short Name',
+                    Source_Name: {
+                        title: 'Source Name',
                         width: '10%'
                     },
-                    Name_Long: {
-                        title: 'Campus Long Name',
-                        width: '10%'
-                    },
-                    Description: {
-                        title: 'Description of the Campus',
+                    SourceDescription: {
+                        title: 'Description of the source',
                         width: '20%'
                     },
                     AddressStreet: {
@@ -250,7 +216,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                 //Register to selectionChanged event to hanlde events
                 selectionChanged: function () {
                     //Get all selected rows
-                    var $selectedRows = $('#CampusTableContainer').jtable('selectedRows');
+                    var $selectedRows = $('#SourceTableContainer').jtable('selectedRows');
 
                     $('#SelectedRowList').empty();
                     if ($selectedRows.length > 0) {
@@ -262,31 +228,31 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                             //'<br /><b>Name</b>:' + record.Name + '<br /><br />'
                             //);
                             //
-                            //  show room - resident table
-                            //BuildingRoomResidentControl(record);
-                            getbuildingOptionsJSON(record);
+                            //  show mysurvey - resident table
+                            getmysurveyOptionsJSON(record);
+                            //SourceContactsControl(record);
                         });
                     } else {
                         //No rows selected
                         //$('#SelectedRowList').append('No row selected! Select rows to see here...');
                         //
-                        //  hide the room - resident table
-                        //$('#CampusBuildingTableContainer').hide();
-                        showRooms(false);
+                        //  hide the mysurvey - resident table
+                        //$('#SourceContactsTableContainer').hide();
+                        showContacts(false);
                     }
                 },
             });
-            $('#CampusTableContainer').jtable('load');
+            $('#SourceTableContainer').jtable('load');
             return true;
         };
 
         //  Used by jTable deleteAction method
-        var campusdelete = function (postData, jtParams) {
-            var r = confirm('Do you wish to delete ALL Buildings and associated inspections ?');
+        var sourcedelete = function (postData, jtParams) {
+            var r = confirm('Do you wish to delete ALL mysurveys and associated invoices ?');
             if (r == true) {
                 return $.Deferred(function ($dfd) {
                     $.ajax({
-                        url: webServiceURL() + '/jTable/CampusDelete',
+                        url: webServiceURL() + '/jTable/SourceDelete',
                         type: 'POST',
                         dataType: 'json',
                         data: postData,
@@ -308,7 +274,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                 //});
                 return $.Deferred(function ($dfd) {
                     $.ajax({
-                        url: webServiceURL() + '/jTable/NopBuilding',
+                        url: webServiceURL() + '/jTable/NopSource',
                         type: 'POST',
                         dataType: 'json',
                         data: postData,
@@ -325,10 +291,11 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable createAction method
-        var campuscreate = function (postData, jtParams) {
+        var sourcecreate = function (postData, jtParams) {
+            var ph = 0;
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/CampusCreate',
+                    url: webServiceURL() + '/jTable/SourceCreate',
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -343,10 +310,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable updateAction method
-        var campusupdate = function (postData, jtParams) {
+        var sourceupdate = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/CampusUpdate',
+                    url: webServiceURL() + '/jTable/SourceUpdate',
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -361,10 +328,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         }
 
         //  Used by jTable listAction method
-        var campusselect = function (postData, jtParams) {
+        var sourceselect = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/campusselect',     //  ?' + postData,
+                    url: webServiceURL() + '/jTable/SourceSelect',     //  ?' + postData,
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -378,13 +345,13 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             });
         }
 
-        var buildingroomresidentselect = function (postData, jtParams) {
+        var sourcemysurveyselect = function (postData, jtParams) {
             var DTO = {
-                FK_Building_Id: campusselected
+                FK_Source_Id: sourceselected
             }
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingRoomResidentSelect',     //  ?' + postData,
+                    url: webServiceURL() + '/jTable/SourceContactsSelect',     //  ?' + postData,
                     type: 'POST',
                     dataType: 'json',
                     data: DTO,
@@ -398,10 +365,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             });
         }
 
-        var buildingroomresidentcreate = function (postData, jtParams) {
+        var sourcemysurveycreate = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingRoomResidentCreate',     //  ?' + postData,
+                    url: webServiceURL() + '/jTable/SourceContactsCreate',     //  ?' + postData,
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -415,12 +382,12 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             });
         }
 
-        var buildingroomresidentdelete = function (postData, jtParams) {
-            var r = confirm('Do you wish to delete this room-resident relationship ?');
+        var sourcemysurveydelete = function (postData, jtParams) {
+            var r = confirm('Do you wish to delete this source - mysurvey relationship ?');
             if (r == true) {
                 return $.Deferred(function ($dfd) {
                     $.ajax({
-                        url: webServiceURL() + '/jTable/BuildingRoomResidentDelete',
+                        url: webServiceURL() + '/jTable/SourceContactsDelete',
                         type: 'POST',
                         dataType: 'json',
                         data: postData,
@@ -442,7 +409,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                 //});
                 return $.Deferred(function ($dfd) {
                     $.ajax({
-                        url: webServiceURL() + '/jTable/NopBuilding',
+                        url: webServiceURL() + '/jTable/NopSource',
                         type: 'POST',
                         dataType: 'json',
                         data: postData,
@@ -458,10 +425,10 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
 
         }
 
-        var buildingroomresidentupdate = function (postData, jtParams) {
+        var sourcemysurveyupdate = function (postData, jtParams) {
             return $.Deferred(function ($dfd) {
                 $.ajax({
-                    url: webServiceURL() + '/jTable/BuildingRoomResidentUpdate',     //  ?' + postData,
+                    url: webServiceURL() + '/jTable/SourceContactsUpdate',     //  ?' + postData,
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
@@ -474,8 +441,6 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
                 });
             });
         }
-
-
 
         var jtableCallback = function (evt) {
             isLoading(true);
@@ -492,14 +457,13 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             return app.showMessage('Are you sure you want to leave this page?', 'Navigate', ['Yes', 'No']);
         };
 
-
         return {
-            displayName: 'Campus',
+            displayName: 'Source',
             images: ko.observableArray([]),
             isLoading: isLoading,
             activate: activate,
             compositionComplete: compositionComplete,
             webServiceURL: webServiceURL,
-            showRooms: showRooms,
+            showContacts: showContacts,
         };
     });
