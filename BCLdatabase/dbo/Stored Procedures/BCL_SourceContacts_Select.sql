@@ -12,9 +12,9 @@ BEGIN
 	
 	Select bsc.PK_SourceContacts_Id,
 		bcls.PK_Source_Id, bcls.Source_Name, bcls.SourceDescription, bcls.OfficePhoneNumber, bcls.OfficeEmailAddress,
-		bclc.PK_Contacts_Id, bclc.Contacts_Name, bclc.ContactsDescription, bclc.MobilePhoneNumber, bclc.EmailAddress
+		bclc.PK_Contact_Id, bclc.Name_First, bclc.Name_Middle, bclc.Name_Second, bclc.Description, bclc.PhoneNumber, bclc.EmailAddress
 	From BCL_SourceContacts bsc
 	Inner Join BCL_Source bcls On bcls.PK_Source_Id = bsc.FK_Source_Id
-	Inner Join BCL_Contacts bclc on bclc.PK_Contacts_Id = bsc.FK_Contacts_Id
+	Inner Join BCL_Contact bclc on bclc.PK_Contact_Id = bsc.FK_Contacts_Id
 
 END

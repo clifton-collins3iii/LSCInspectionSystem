@@ -158,6 +158,7 @@
     <Compile Include="dtBuildingRoomResident.cs" />
     <Compile Include="dtCampus.cs" />
     <Compile Include="dtContact.cs" />
+    <Compile Include="dtMySurvey.cs" />
     <Compile Include="dtResident.cs" />
     <Compile Include="dtBuildingRoom.cs" />
     <Compile Include="dtBuilding.cs" />

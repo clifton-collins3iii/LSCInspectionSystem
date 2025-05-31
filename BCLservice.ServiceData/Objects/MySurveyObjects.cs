@@ -6,45 +6,30 @@ namespace LSCservice.ServiceData
     {
         public MySurveyObject() { }
 
-        public int PK_Source_Id { get; set; }
+        public int PK_InspectionSurvey_Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime EffectiveDate { get; set; }
-        public DateTime TerminationDate { get; set; }
+        public DateTime SubmittedDate { get; set; }
+        public DateTime ReviewedDate { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
 
-        public string Source_Name { get; set; }
-        public string SourceDescription { get; set; }
-        public string AddressStreet { get; set; }
-        public string AddressUnit { get; set; }
-        public string AddressCity { get; set; }
-        public string AddressState { get; set; }
-        public string AddressZip { get; set; }
-
-        public string OfficePhoneNumber { get; set; }
-        public string OfficeEmailAddress { get; set; }
-
+        public string TemplateName { get; set; }
+        public string CampusName { get; set; }
+        public string UserName { get; set; }
     }
 
     public class MySurveyObjectRow
     {
-        public int PK_Source_Id { get; set; }
+        public int PK_InspectionSurvey_Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime EffectiveDate { get; set; }
-        public DateTime TerminationDate { get; set; }
+        public DateTime SubmittedDate { get; set; }
+        public DateTime ReviewedDate { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
 
-        public string Source_Name { get; set; }
-        public string SourceDescription { get; set; }
-        public string AddressStreet { get; set; }
-        public string AddressUnit { get; set; }
-        public string AddressCity { get; set; }
-        public string AddressState { get; set; }
-        public string AddressZip { get; set; }
-        public string OfficePhoneNumber { get; set; }
-        public string OfficeEmailAddress { get; set; }
-
+        public string TemplateName { get; set; }
+        public string CampusName { get; set; }
+        public string UserName { get; set; }
     }
 
     public class MySurveyOptionsObject

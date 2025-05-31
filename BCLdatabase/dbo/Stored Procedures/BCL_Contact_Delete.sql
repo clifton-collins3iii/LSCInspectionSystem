@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[BCL_Contacts_Delete]
+CREATE PROCEDURE [dbo].[BCL_Contact_Delete]
 	@Request	varchar(2048)
 AS
 BEGIN
@@ -11,10 +11,10 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 	Declare
-		@PK_Contacts_Id As Integer = JSON_VALUE(@Request, '$.PK_Contacts_Id')
+		@PK_Contact_Id As Integer = JSON_VALUE(@Request, '$.PK_Contact_Id')
 
-	Delete BCL_Contacts
-	Where PK_Contacts_Id = @PK_Contacts_Id
+	Delete BCL_Contact
+	Where PK_Contact_Id = @PK_Contact_Id
 	
 	Select @@ROWCOUNT;
 END

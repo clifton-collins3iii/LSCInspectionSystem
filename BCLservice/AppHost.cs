@@ -12,7 +12,7 @@ namespace LSCservice
         /// Base constructor requires a Name and Assembly where web service implementation is located
         /// </summary>
         public AppHost()
-            : base("BCLservice", typeof(Building_Service).Assembly) { }
+            : base("LSCservice", typeof(Building_Service).Assembly) { }
 
         /// <summary>
         /// Application specific configuration

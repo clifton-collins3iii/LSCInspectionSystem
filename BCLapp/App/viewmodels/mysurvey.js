@@ -8,7 +8,7 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
         var webServiceURL = ko.observable(sessionStorage.getItem('WebService'));
         var showContacts = ko.observable(false);
         var stateOptionsArray;
-        var mysurveyOptionsArray;
+        var mysurveyUserOptionsArray;
         var rentpaymentOptionsArray;
         var mysurveyselected;
 
@@ -17,8 +17,8 @@ define(['plugins/http', 'durandal/app', 'jquery', 'knockout', 'jtable'],
             //return [{ Value: '1', DisplayText: 'Admin Office' }, { Value: '5', DisplayText: 'Dartmoor' }, { Value: '6', DisplayText: 'Next2' }];
         }
 
-        var mysurveyOptionsJSON = function (data) {
-            return mysurveyOptionsArray;
+        var mysurveyUserOptionsJSON = function (data) {
+            return mysurveyUserOptionsArray;
         }
         var activate = function () {
             //the router's activator calls this function and waits for it to complete before proceding

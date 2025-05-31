@@ -70,6 +70,7 @@
     <Compile Include="BuildingRoom_Service.cs" />
     <Compile Include="Campus_Service.cs" />
     <Compile Include="Contact_Service.cs" />
+    <Compile Include="MySurvey_Service.cs" />
     <Compile Include="Resident_Service.cs" />
     <Compile Include="Building_Service.cs" />
     <Compile Include="Hello_Service.cs" />

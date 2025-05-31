@@ -26,9 +26,9 @@ namespace LSCservice.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=BCLdatabase;Persist Security Info=True;User I" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=LSCDatabase;Persist Security Info=True;User I" +
             "D=bcldbadmin;Password=Htlm!2024;MultipleActiveResultSets=True;Encrypt=False;Appl" +
-            "ication Name=BCLServiceModel")]
+            "ication Name=LSCServiceModel")]
         public string dbconnection {
             get {
                 return ((string)(this["dbconnection"]));

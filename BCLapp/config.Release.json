@@ -1,2 +1,8 @@
 ﻿{
+  "settings": {
+    "@jdt.replace": {
+      "Service": "https://inspection.robbieandclifton.com/api",
+      "idletimeoutminutes": "20"
+    }
+  }
 }
